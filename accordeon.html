@@ -1,0 +1,37 @@
+<style>
+  .home-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+  }
+  .home-accordion {
+      cursor: pointer;
+  }
+  .home-accordion.active {
+      text-decoration: underline;
+  }
+  .home-accordion.active:hover {
+      text-decoration: underline;
+      color: #395adb;
+  }
+  .home-accordion:hover {
+      color: #395adb;
+  }
+</style>
+
+<script>
+  var acc = document.getElementsByClassName("home-accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = document.getElementsByClassName("home-panel")[0];
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>
